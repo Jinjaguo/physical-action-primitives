@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "corpus_id": "branched",
+  "fresh_config": "configs/corpus/fresh.json",
+  "fresh_release_index": "data/manifests/fresh_base_release.json",
+  "split_manifest": "data/manifests/split.json",
+  "parent_selection": {
+    "within_shard_lane_stride": 128,
+    "within_shard_first_lane": 0,
+    "parents_per_shard": 64,
+    "frame_for_exact_contact_tasks": "first exact non-support contact frame, else midpoint",
+    "frame_for_unavailable_contact_tasks": "midpoint",
+    "reporting_outcomes_used": false
+  },
+  "branching": {
+    "branches_per_parent": 8,
+    "horizon_transitions": 8,
+    "branch_zero": "repeat source trajectory processed action from parent frame",
+    "branches_one_through_seven": "source action plus rows 1..7 of fixed 8D Hadamard perturbation",
+    "perturbation_scale_controller_space": 0.15,
+    "temporal_envelope": "sin(pi*(step+1)/(horizon+1))",
+    "clip_to_declared_controller_support": true,
+    "state_equality_max_abs_tolerance": 2e-06
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "scales": {
+    "200M": {
+      "exact_trainable_parameters": 204259784,
+      "hidden_dimension": 1184,
+      "layers": 18
+    },
+    "50M": {
+      "exact_trainable_parameters": 48698024,
+      "hidden_dimension": 768,
+      "layers": 10
+    },
+    "800M": {
+      "exact_trainable_parameters": 796957496,
+      "hidden_dimension": 2032,
+      "layers": 24
+    }
+  },
+  "scientific_representation": "transition_local_inverse_effect_posterior_plus_soft_prototype_mixture_plus_state_blind_action_decoder_plus_narrow_bounded_continuous_parameter_plus_continuous_packing_and_precision_consistency",
+  "shared_representation": {
+    "action_decoder_state_conditioned": false,
+    "crop_relative_inputs": false,
+    "effect_and_transition_decoders_state_conditioned": true,
+    "forbidden_inputs": [
+      "task label",
+      "primitive label",
+      "contact-phase label",
+      "human semantic action name",
+      "reward",
+      "success",
+      "RGB",
+      "language",
+      "complete final-task trajectory",
+      "crop origin",
+      "absolute within-window position"
+    ],
+    "hard_quantization": false,
+    "identity_inference_precision": "fp32_tf32_disabled",
+    "mixture_temperature": 0.5,
+    "operational_unit_representation": "continuous prototype activation weights",
+    "packing_consistency": "continuous weight MSE to separate-window BF16 view every 8 steps",
+    "parameter_bound": [
+      -1.0,
+      1.0
+    ],
+    "parameter_dimension": 4,
+    "posterior_inputs": [
+      "normalized physical state",
+      "normalized controller action",
+      "normalized measured state delta",
+      "normalized structured physical effect",
+      "observed contact activity"
+    ],
+    "precision_consistency": "continuous weight MSE to FP32 TF32-disabled view every 8 steps",
+    "prototype_count": 64,
+    "prototype_only_coarse_decoder": true,
+    "residual_bound": 0.5,
+    "temporal_mixing_in_posterior": false,
+    "transition_local_posterior": true,
+    "window_length": 16
+  }
+}

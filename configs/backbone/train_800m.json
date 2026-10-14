@@ -1,0 +1,55 @@
+{
+  "architecture": "architecture.json",
+  "branched_release_index": "data/manifests/branched_release.json",
+  "consistency_every_steps": 8,
+  "consistency_windows": 2,
+  "epochs": 10,
+  "fresh_release_index": "data/manifests/fresh_release.json",
+  "gradient_accumulation_steps": 2,
+  "historical_release_index": "data/manifests/historical_release.json",
+  "identity_inference_precision": "fp32_tf32_disabled",
+  "initialization": "from_scratch_fixed_seed",
+  "loss_weights": {
+    "assignment_entropy": 0.01,
+    "boundary": 0.01,
+    "coarse": 0.5,
+    "contact_within_effect": 1.0,
+    "continuous_parameter": 0.01,
+    "effect": 1.0,
+    "marginal_balance": 0.01,
+    "packing_consistency": 0.02,
+    "parameter_smoothness": 0.01,
+    "precision_consistency": 0.02,
+    "prototype_diversity": 0.001,
+    "residual_energy": 0.001,
+    "transition": 1.0
+  },
+  "material_prototype_minimum_mass_fraction": 0.001,
+  "max_optimizer_steps": 100000,
+  "model_scale": "800M",
+  "normalization": "data/manifests/normalization.json",
+  "optimizer": {
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 0.0001,
+    "minimum_learning_rate_ratio": 0.1,
+    "name": "AdamW",
+    "warmup_steps": 2000,
+    "weight_decay": 0.01
+  },
+  "partition": "source_training",
+  "per_gpu_batch_size": 16,
+  "precision": "bfloat16",
+  "resource_envelope": {
+    "gpus": 4
+  },
+  "seed": 20260905,
+  "split_manifest": "data/manifests/split.json",
+  "validation_windows": 8192,
+  "window_length": 16,
+  "window_sampling": "all_lazy_windows",
+  "window_stride": 8
+}

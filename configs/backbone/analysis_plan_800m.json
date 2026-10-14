@@ -1,0 +1,4 @@
+{
+  "checkpoint": "checkpoints/backbone/800m/checkpoint_final.pt",
+  "normalization": "data/manifests/normalization.json"
+}

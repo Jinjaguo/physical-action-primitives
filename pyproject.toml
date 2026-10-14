@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "physical-action-primitives"
+version = "0.1.0"
+description = "Physical Action Primitives: persistent, queryable and callable physical response operators for reusable robot action knowledge"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = ["numpy", "scipy", "h5py", "pyyaml", "torch"]
+
+[project.optional-dependencies]
+simulation = ["mani_skill", "gymnasium", "imageio", "imageio-ffmpeg", "pillow"]
+analysis = ["matplotlib", "pandas"]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

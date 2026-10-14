@@ -1,0 +1,61 @@
+{
+  "scope": "Fixed-checkpoint prospective evaluation; existing four-seed equal-budget constructions; no new training, width tuning or final-outcome model selection",
+  "selection": "checkpoints/pap/SELECTION.json",
+  "source_blocks": 20,
+  "recipients_per_block": 3,
+  "sample_size_policy": "Fixed precision-limited budget of 20 independent source blocks per task; no optional stopping; no power guarantee.",
+  "seeds": {
+    "PushT-v1": 1510000,
+    "PokeCube-v1": 1510001,
+    "RollBall-v1": 1510002
+  },
+  "source_indices": [
+    12,
+    2,
+    22,
+    10,
+    14,
+    0,
+    24
+  ],
+  "query_count": 18,
+  "candidate_count": 81,
+  "requests_per_family": 9,
+  "response_scale": [
+    0.005,
+    0.005,
+    0.0872664626,
+    0.05,
+    0.05,
+    1.0
+  ],
+  "families": [
+    "local",
+    "extrapolation"
+  ],
+  "modes": [
+    "fixed_source",
+    "new_source"
+  ],
+  "primary_endpoints": [
+    "query_fixed_source",
+    "invoke_fixed_source_extrapolation"
+  ],
+  "primary_baselines": [
+    "nearest_source_probe",
+    "endpoint",
+    "nonlinear"
+  ],
+  "primary_effect": "PAP-Affine minus baseline; average over four seeds, equal source blocks, equal environments",
+  "bootstrap": {
+    "unit": "whole_source_block_with_all_requests_and_methods",
+    "draws": 10000,
+    "seed": 150025,
+    "family_size": 6
+  },
+  "meaningful_effect_policy": "Report magnitudes in existing normalized loss and physical units; no categorical practical-superiority claim without a prespecified external margin.",
+  "source_recipe": "Independent blocks; source geometry jitter +/-18mm and yaw +/-0.15rad; three descendants jitter +/-2mm and +/-0.02rad; matched alternating contact offset; RollBall heading fixed.",
+  "lineage": "All descendants cluster with their source block; fresh preparation seed plus a unique block recipe per block.",
+  "failures": "No exclusion for unsuccessful execution or invalid joints. Nonfinite observations or context mismatch stop the affected run and prevent complete-cohort superiority claims. Infrastructure retries retain exact cases.",
+  "source_population_caveat": "Same environment physical parameters; no claim of transfer to arbitrary hidden physics."
+}

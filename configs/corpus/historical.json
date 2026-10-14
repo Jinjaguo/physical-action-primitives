@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "corpus_id": "historical",
+  "split_manifest": "data/manifests/split.json",
+  "window": {
+    "length_transitions": 16,
+    "stride_transitions": 8,
+    "storage": "derived_lazy_index_only"
+  },
+  "feature_policy": {
+    "task_identity_metadata_only": true,
+    "reward_success_reporting_only": true,
+    "human_phase_or_skill_labels_absent": true,
+    "behavior_family_metadata_only": true,
+    "full_trajectory_available": true
+  },
+  "tasks": [
+    {
+      "environment_id": "PegInsertionSide-v1",
+      "horizon": 100,
+      "action_dimension": 8,
+      "primary_state": "sim_state/actors/peg",
+      "context_states": [
+        "sim_state/actors/box_with_hole"
+      ],
+      "tcp_state": "observations/extra/tcp_pose",
+      "robot_qpos": "observations/agent/qpos",
+      "robot_qvel": "observations/agent/qvel",
+      "replay_states": [
+        "sim_state/actors/peg",
+        "sim_state/actors/box_with_hole",
+        "sim_state/actors/table-workspace",
+        "sim_state/articulations/panda_wristcam"
+      ]
+    },
+    {
+      "environment_id": "PlugCharger-v1",
+      "horizon": 200,
+      "action_dimension": 8,
+      "primary_state": "sim_state/actors/charger",
+      "context_states": [
+        "sim_state/actors/receptacle",
+        "observations/extra/goal_pose"
+      ],
+      "tcp_state": "observations/extra/tcp_pose",
+      "robot_qpos": "observations/agent/qpos",
+      "robot_qvel": "observations/agent/qvel",
+      "replay_states": [
+        "sim_state/actors/charger",
+        "sim_state/actors/receptacle",
+        "sim_state/actors/table-workspace",
+        "sim_state/articulations/panda_wristcam"
+      ]
+    },
+    {
+      "environment_id": "PullCubeTool-v1",
+      "horizon": 100,
+      "action_dimension": 8,
+      "primary_state": "sim_state/actors/cube",
+      "context_states": [
+        "sim_state/actors/l_shape_tool"
+      ],
+      "tcp_state": "observations/extra/tcp_pose",
+      "robot_qpos": "observations/agent/qpos",
+      "robot_qvel": "observations/agent/qvel",
+      "replay_states": [
+        "sim_state/actors/cube",
+        "sim_state/actors/l_shape_tool",
+        "sim_state/actors/table-workspace",
+        "sim_state/articulations/panda"
+      ]
+    },
+    {
+      "environment_id": "StackPyramid-v1",
+      "horizon": 250,
+      "action_dimension": 8,
+      "primary_state": "sim_state/actors/cubeA",
+      "context_states": [
+        "sim_state/actors/cubeB",
+        "sim_state/actors/cubeC"
+      ],
+      "tcp_state": "observations/extra/tcp_pose",
+      "robot_qpos": "observations/agent/qpos",
+      "robot_qvel": "observations/agent/qvel",
+      "replay_states": [
+        "sim_state/actors/cubeA",
+        "sim_state/actors/cubeB",
+        "sim_state/actors/cubeC",
+        "sim_state/actors/table-workspace",
+        "sim_state/articulations/panda_wristcam"
+      ]
+    },
+    {
+      "environment_id": "DrawTriangle-v1",
+      "horizon": 300,
+      "action_dimension": 7,
+      "primary_state": "observations/extra/tcp_pose",
+      "context_states": [
+        "sim_state/actors/goal_tri"
+      ],
+      "tcp_state": "observations/extra/tcp_pose",
+      "robot_qpos": "observations/agent/qpos",
+      "robot_qvel": "observations/agent/qvel",
+      "replay_states": [
+        "sim_state/actors/goal_tri",
+        "sim_state/actors/table-workspace",
+        "sim_state/articulations/panda_stick"
+      ]
+    }
+  ]
+}

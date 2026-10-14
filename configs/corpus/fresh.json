@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "corpus_id": "fresh",
+  "split_manifest": "data/manifests/split.json",
+  "shard_hard_limit_bytes": 1000000000,
+  "num_envs": 64,
+  "roots_per_shard": 8192,
+  "batches_per_shard": 128,
+  "observation_mode": "state",
+  "control_mode": "pd_joint_delta_pos",
+  "reward_mode": "dense",
+  "simulation_backend": "physx_cuda",
+  "render_backend": "none",
+  "official_ppo_source": "external/ManiSkill/examples/baselines/ppo/ppo.py",
+  "policy_action_rule": "deterministic PPO actor mean plus lane-specific Gaussian controller-space perturbation, clipped to the declared action support",
+  "window": {
+    "length_transitions": 16,
+    "stride_transitions": 8,
+    "storage": "lazy_index_without_tensor_duplication"
+  },
+  "tier2_selected_lanes_per_batch": [
+    0,
+    1,
+    16,
+    17,
+    32,
+    33,
+    48,
+    49
+  ],
+  "tier2_selection_rule": "first two lanes in each 16-lane behavior stratum",
+  "behavior_strata": [
+    {
+      "name": "teacher_mean",
+      "lane_count": 16,
+      "gaussian_sigma_controller_space": 0.0
+    },
+    {
+      "name": "teacher_noise_005",
+      "lane_count": 16,
+      "gaussian_sigma_controller_space": 0.05
+    },
+    {
+      "name": "teacher_noise_015",
+      "lane_count": 16,
+      "gaussian_sigma_controller_space": 0.15
+    },
+    {
+      "name": "teacher_noise_030",
+      "lane_count": 16,
+      "gaussian_sigma_controller_space": 0.3
+    }
+  ],
+  "action_noise_seed_base_by_task": {
+    "PokeCube-v1": 1000000000,
+    "PullCube-v1": 1100000000,
+    "PushT-v1": 1200000000,
+    "RollBall-v1": 1300000000,
+    "StackCube-v1": 1400000000
+  },
+  "model_feature_policy": {
+    "task_identity_metadata_only": true,
+    "teacher_identity_metadata_only": true,
+    "teacher_policy_observation_excluded_from_training": true,
+    "reward_success_reporting_only": true,
+    "rgb_excluded": true,
+    "language_excluded": true,
+    "human_phase_or_skill_labels_excluded": true
+  },
+  "tasks": [
+    {
+      "environment_id": "PokeCube-v1",
+      "partition": "source_training",
+      "mechanism": "tool_mediated_contact",
+      "root_seed_first": 100000000,
+      "root_count": 1507328,
+      "shard_count": 184,
+      "max_episode_steps": 50,
+      "checkpoint": "checkpoints/teachers/PokeCube-v1/ppo_pd_joint_delta_pos_ckpt.pt",
+      "primary_actor": "cube",
+      "primary_attr": "cube",
+      "control_actor": "peg",
+      "control_attr": "peg",
+      "context_actor": null,
+      "context_attr": null,
+      "contact_observation_status": "exact_pairwise_query_available",
+      "geometry_observation_keys": []
+    },
+    {
+      "environment_id": "PullCube-v1",
+      "partition": "source_training",
+      "mechanism": "planar_pull",
+      "root_seed_first": 200000000,
+      "root_count": 1507328,
+      "shard_count": 184,
+      "max_episode_steps": 50,
+      "checkpoint": "checkpoints/teachers/PullCube-v1/ppo_pd_joint_delta_pos_ckpt.pt",
+      "primary_actor": "cube",
+      "primary_attr": "obj",
+      "control_actor": "cube",
+      "control_attr": "obj",
+      "context_actor": null,
+      "context_attr": null,
+      "contact_observation_status": "exact_pairwise_query_available",
+      "geometry_observation_keys": []
+    },
+    {
+      "environment_id": "PushT-v1",
+      "partition": "source_training",
+      "mechanism": "planar_nonconvex_push",
+      "root_seed_first": 300000000,
+      "root_count": 1507328,
+      "shard_count": 184,
+      "max_episode_steps": 100,
+      "checkpoint": "checkpoints/teachers/PushT-v1/ppo_pd_joint_delta_pos_ckpt.pt",
+      "primary_actor": "Tee",
+      "primary_attr": "tee",
+      "control_actor": "Tee",
+      "control_attr": "tee",
+      "context_actor": null,
+      "context_attr": null,
+      "render_backend": "gpu",
+      "contact_observation_status": "robot_object_pairwise_channels_unavailable_for_panda_stick",
+      "geometry_observation_keys": []
+    },
+    {
+      "environment_id": "RollBall-v1",
+      "partition": "source_training",
+      "mechanism": "rolling_contact",
+      "root_seed_first": 400000000,
+      "root_count": 1507328,
+      "shard_count": 184,
+      "max_episode_steps": 80,
+      "checkpoint": "checkpoints/teachers/RollBall-v1/ppo_pd_joint_delta_pos_ckpt.pt",
+      "primary_actor": "ball",
+      "primary_attr": "ball",
+      "control_actor": "ball",
+      "control_attr": "ball",
+      "context_actor": null,
+      "context_attr": null,
+      "contact_observation_status": "gpu_pairwise_query_diagnostic_zero_unavailable_for_claims",
+      "geometry_observation_keys": []
+    },
+    {
+      "environment_id": "StackCube-v1",
+      "partition": "composition_development",
+      "mechanism": "grasp_lift_stack",
+      "root_seed_first": 500000000,
+      "root_count": 753664,
+      "shard_count": 92,
+      "max_episode_steps": 50,
+      "checkpoint": "checkpoints/teachers/StackCube-v1/ppo_pd_joint_delta_pos_ckpt.pt",
+      "primary_actor": "cubeA",
+      "primary_attr": "cubeA",
+      "control_actor": "cubeA",
+      "control_attr": "cubeA",
+      "context_actor": "cubeB",
+      "context_attr": "cubeB",
+      "contact_observation_status": "exact_pairwise_query_available",
+      "geometry_observation_keys": []
+    }
+  ]
+}

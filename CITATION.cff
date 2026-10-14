@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying paper."
+title: "Physical Action Primitives"
+type: software
+license: MIT
+repository-code: "https://github.com/Jinjaguo/physical-action-primitives"
+authors:
+  - family-names: Guo
+    given-names: Jinjia
+    affiliation: University of Florida
+  - family-names: Wang
+    given-names: Xinyu
+    affiliation: University of Florida
+  - family-names: Sun
+    given-names: Bowen
+    affiliation: University of Florida
+  - family-names: Zuo
+    given-names: Dongqi
+    affiliation: University of California, Berkeley
+  - family-names: Du
+    given-names: Jing
+    affiliation: University of Florida
+preferred-citation:
+  type: article
+  title: "Beyond Verbs and Trajectories: Physical Action Primitives through Local Interaction Laws"
+  authors:
+    - family-names: Guo
+      given-names: Jinjia
+    - family-names: Wang
+      given-names: Xinyu
+    - family-names: Sun
+      given-names: Bowen
+    - family-names: Zuo
+      given-names: Dongqi
+    - family-names: Du
+      given-names: Jing
+  year: 2026

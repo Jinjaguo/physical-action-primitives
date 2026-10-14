@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "corpus_id": "fresh_extension",
+  "split_manifest": "data/manifests/split.json",
+  "shard_hard_limit_bytes": 1000000000,
+  "num_envs": 64,
+  "roots_per_shard": 8192,
+  "batches_per_shard": 128,
+  "observation_mode": "state",
+  "control_mode": "pd_joint_delta_pos",
+  "reward_mode": "dense",
+  "simulation_backend": "physx_cuda",
+  "render_backend": "none",
+  "official_ppo_source": "external/ManiSkill/examples/baselines/ppo/ppo.py",
+  "policy_action_rule": "deterministic PPO actor mean plus lane-specific Gaussian controller-space perturbation, clipped to the declared action support",
+  "window": {
+    "length_transitions": 16,
+    "storage": "lazy_index_without_tensor_duplication",
+    "stride_transitions": 8
+  },
+  "tier2_selected_lanes_per_batch": [
+    0,
+    1,
+    16,
+    17,
+    32,
+    33,
+    48,
+    49
+  ],
+  "tier2_selection_rule": "first two lanes in each 16-lane behavior stratum",
+  "behavior_strata": [
+    {
+      "gaussian_sigma_controller_space": 0.0,
+      "lane_count": 16,
+      "name": "teacher_mean"
+    },
+    {
+      "gaussian_sigma_controller_space": 0.05,
+      "lane_count": 16,
+      "name": "teacher_noise_005"
+    },
+    {
+      "gaussian_sigma_controller_space": 0.15,
+      "lane_count": 16,
+      "name": "teacher_noise_015"
+    },
+    {
+      "gaussian_sigma_controller_space": 0.3,
+      "lane_count": 16,
+      "name": "teacher_noise_030"
+    }
+  ],
+  "action_noise_seed_base_by_task": {
+    "PokeCube-v1": 1600000000,
+    "PullCube-v1": 1700000000,
+    "PushT-v1": 1800000000,
+    "RollBall-v1": 1900000000,
+    "StackCube-v1": 2000000000
+  },
+  "model_feature_policy": {
+    "human_phase_or_skill_labels_excluded": true,
+    "language_excluded": true,
+    "reward_success_reporting_only": true,
+    "rgb_excluded": true,
+    "task_identity_metadata_only": true,
+    "teacher_identity_metadata_only": true,
+    "teacher_policy_observation_excluded_from_training": true
+  },
+  "tasks": [
+    {
+      "checkpoint": "checkpoints/teachers/PokeCube-v1/ppo_pd_joint_delta_pos_ckpt.pt",
+      "contact_observation_status": "exact_pairwise_query_available",
+      "context_actor": null,
+      "context_attr": null,
+      "control_actor": "peg",
+      "control_attr": "peg",
+      "environment_id": "PokeCube-v1",
+      "geometry_observation_keys": [],
+      "max_episode_steps": 50,
+      "mechanism": "tool_mediated_contact",
+      "partition": "source_training",
+      "primary_actor": "cube",
+      "primary_attr": "cube",
+      "root_count": 262144,
+      "root_seed_first": 600000000,
+      "shard_count": 32
+    },
+    {
+      "checkpoint": "checkpoints/teachers/PullCube-v1/ppo_pd_joint_delta_pos_ckpt.pt",
+      "contact_observation_status": "exact_pairwise_query_available",
+      "context_actor": null,
+      "context_attr": null,
+      "control_actor": "cube",
+      "control_attr": "obj",
+      "environment_id": "PullCube-v1",
+      "geometry_observation_keys": [],
+      "max_episode_steps": 50,
+      "mechanism": "planar_pull",
+      "partition": "source_training",
+      "primary_actor": "cube",
+      "primary_attr": "obj",
+      "root_count": 262144,
+      "root_seed_first": 700000000,
+      "shard_count": 32
+    },
+    {
+      "checkpoint": "checkpoints/teachers/PushT-v1/ppo_pd_joint_delta_pos_ckpt.pt",
+      "contact_observation_status": "robot_object_pairwise_channels_unavailable_for_panda_stick",
+      "context_actor": null,
+      "context_attr": null,
+      "control_actor": "Tee",
+      "control_attr": "tee",
+      "environment_id": "PushT-v1",
+      "geometry_observation_keys": [],
+      "max_episode_steps": 100,
+      "mechanism": "planar_nonconvex_push",
+      "partition": "source_training",
+      "primary_actor": "Tee",
+      "primary_attr": "tee",
+      "render_backend": "gpu",
+      "root_count": 262144,
+      "root_seed_first": 800000000,
+      "shard_count": 32
+    },
+    {
+      "checkpoint": "checkpoints/teachers/RollBall-v1/ppo_pd_joint_delta_pos_ckpt.pt",
+      "contact_observation_status": "gpu_pairwise_query_diagnostic_zero_unavailable_for_claims",
+      "context_actor": null,
+      "context_attr": null,
+      "control_actor": "ball",
+      "control_attr": "ball",
+      "environment_id": "RollBall-v1",
+      "geometry_observation_keys": [],
+      "max_episode_steps": 80,
+      "mechanism": "rolling_contact",
+      "partition": "source_training",
+      "primary_actor": "ball",
+      "primary_attr": "ball",
+      "root_count": 262144,
+      "root_seed_first": 900000000,
+      "shard_count": 32
+    },
+    {
+      "checkpoint": "checkpoints/teachers/StackCube-v1/ppo_pd_joint_delta_pos_ckpt.pt",
+      "contact_observation_status": "exact_pairwise_query_available",
+      "context_actor": "cubeB",
+      "context_attr": "cubeB",
+      "control_actor": "cubeA",
+      "control_attr": "cubeA",
+      "environment_id": "StackCube-v1",
+      "geometry_observation_keys": [],
+      "max_episode_steps": 50,
+      "mechanism": "grasp_lift_stack",
+      "partition": "composition_development",
+      "primary_actor": "cubeA",
+      "primary_attr": "cubeA",
+      "root_count": 131072,
+      "root_seed_first": 1500000000,
+      "shard_count": 16
+    }
+  ],
+  "base_fresh_config": "configs/corpus/fresh.json",
+  "base_fresh_release_index": "data/manifests/fresh_base_release.json",
+  "target_combined_bytes": 260000000000,
+  "planning_measurements": {
+    "allocation_block_count": 16,
+    "allocation_block_count_multiple_for_eight_rank_balance": 4,
+    "allocation_block_task_shards": {
+      "PokeCube-v1": 2,
+      "PullCube-v1": 2,
+      "PushT-v1": 2,
+      "RollBall-v1": 2,
+      "StackCube-v1": 1
+    },
+    "base_artifact_bytes": 224589901170,
+    "base_task_mean_artifact_bytes_per_shard": {
+      "PokeCube-v1": 231318206.08152175,
+      "PullCube-v1": 194188741.1847826,
+      "PushT-v1": 353842393.42391306,
+      "RollBall-v1": 313527169.6847826,
+      "StackCube-v1": 255441557.1847826
+    },
+    "projected_extension_bytes": 39059113247,
+    "projected_combined_bytes": 263649014417
+  }
+}

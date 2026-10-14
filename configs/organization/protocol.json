@@ -1,0 +1,502 @@
+{
+  "title": "Physical Organization Audit of Action Primitive Representations",
+  "environment": "SequentialDampingRollBall-v1",
+  "semantic_behavior": "closed-gripper push of ball",
+  "condition_labels_hidden_from_models": true,
+  "damping_values": [
+    0.0,
+    2.0,
+    4.0,
+    6.0,
+    8.0
+  ],
+  "topology": "Fresh Python process, new simulator, identical full preparation for every branch; no state-only replay between branches.",
+  "preparation_steps": 180,
+  "preparation_damping": 4.0,
+  "steps": 24,
+  "moving_steps": 16,
+  "control_freq": 20,
+  "sim_freq": 100,
+  "position_jitter_m": 0.002,
+  "source_xi_m": [
+    [
+      0.0,
+      0.022
+    ],
+    [
+      -0.008,
+      0.022
+    ],
+    [
+      0.008,
+      0.022
+    ],
+    [
+      0.0,
+      0.014
+    ],
+    [
+      0.0,
+      0.03
+    ],
+    [
+      -0.008,
+      0.014
+    ],
+    [
+      0.008,
+      0.03
+    ]
+  ],
+  "audit_xi_m": [
+    [
+      -0.008,
+      0.018
+    ],
+    [
+      -0.008,
+      0.026
+    ],
+    [
+      -0.008,
+      0.03
+    ],
+    [
+      -0.004,
+      0.014
+    ],
+    [
+      -0.004,
+      0.018
+    ],
+    [
+      -0.004,
+      0.022
+    ],
+    [
+      -0.004,
+      0.026
+    ],
+    [
+      -0.004,
+      0.03
+    ],
+    [
+      0.0,
+      0.018
+    ],
+    [
+      0.0,
+      0.026
+    ],
+    [
+      0.004,
+      0.014
+    ],
+    [
+      0.004,
+      0.018
+    ],
+    [
+      0.004,
+      0.022
+    ],
+    [
+      0.004,
+      0.026
+    ],
+    [
+      0.004,
+      0.03
+    ],
+    [
+      0.008,
+      0.014
+    ],
+    [
+      0.008,
+      0.018
+    ],
+    [
+      0.008,
+      0.026
+    ]
+  ],
+  "virtual_query_xi_m": [
+    [
+      -0.008,
+      0.014
+    ],
+    [
+      -0.008,
+      0.016666666666666666
+    ],
+    [
+      -0.008,
+      0.019333333333333334
+    ],
+    [
+      -0.008,
+      0.022
+    ],
+    [
+      -0.008,
+      0.024666666666666667
+    ],
+    [
+      -0.008,
+      0.027333333333333334
+    ],
+    [
+      -0.008,
+      0.03
+    ],
+    [
+      -0.005333333333333334,
+      0.014
+    ],
+    [
+      -0.005333333333333334,
+      0.016666666666666666
+    ],
+    [
+      -0.005333333333333334,
+      0.019333333333333334
+    ],
+    [
+      -0.005333333333333334,
+      0.022
+    ],
+    [
+      -0.005333333333333334,
+      0.024666666666666667
+    ],
+    [
+      -0.005333333333333334,
+      0.027333333333333334
+    ],
+    [
+      -0.005333333333333334,
+      0.03
+    ],
+    [
+      -0.002666666666666667,
+      0.014
+    ],
+    [
+      -0.002666666666666667,
+      0.016666666666666666
+    ],
+    [
+      -0.002666666666666667,
+      0.019333333333333334
+    ],
+    [
+      -0.002666666666666667,
+      0.022
+    ],
+    [
+      -0.002666666666666667,
+      0.024666666666666667
+    ],
+    [
+      -0.002666666666666667,
+      0.027333333333333334
+    ],
+    [
+      -0.002666666666666667,
+      0.03
+    ],
+    [
+      0.0,
+      0.014
+    ],
+    [
+      0.0,
+      0.016666666666666666
+    ],
+    [
+      0.0,
+      0.019333333333333334
+    ],
+    [
+      0.0,
+      0.022
+    ],
+    [
+      0.0,
+      0.024666666666666667
+    ],
+    [
+      0.0,
+      0.027333333333333334
+    ],
+    [
+      0.0,
+      0.03
+    ],
+    [
+      0.002666666666666666,
+      0.014
+    ],
+    [
+      0.002666666666666666,
+      0.016666666666666666
+    ],
+    [
+      0.002666666666666666,
+      0.019333333333333334
+    ],
+    [
+      0.002666666666666666,
+      0.022
+    ],
+    [
+      0.002666666666666666,
+      0.024666666666666667
+    ],
+    [
+      0.002666666666666666,
+      0.027333333333333334
+    ],
+    [
+      0.002666666666666666,
+      0.03
+    ],
+    [
+      0.005333333333333334,
+      0.014
+    ],
+    [
+      0.005333333333333334,
+      0.016666666666666666
+    ],
+    [
+      0.005333333333333334,
+      0.019333333333333334
+    ],
+    [
+      0.005333333333333334,
+      0.022
+    ],
+    [
+      0.005333333333333334,
+      0.024666666666666667
+    ],
+    [
+      0.005333333333333334,
+      0.027333333333333334
+    ],
+    [
+      0.005333333333333334,
+      0.03
+    ],
+    [
+      0.008,
+      0.014
+    ],
+    [
+      0.008,
+      0.016666666666666666
+    ],
+    [
+      0.008,
+      0.019333333333333334
+    ],
+    [
+      0.008,
+      0.022
+    ],
+    [
+      0.008,
+      0.024666666666666667
+    ],
+    [
+      0.008,
+      0.027333333333333334
+    ],
+    [
+      0.008,
+      0.03
+    ]
+  ],
+  "response": "local XYZ displacement, exact local relative rotation vector XYZ, final local linear/angular velocity XYZ",
+  "response_group_scales": [
+    0.005,
+    0.08726646259971647,
+    0.05,
+    1.0
+  ],
+  "response_group_weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "tracking_profile_tolerance_m": 0.0035,
+  "tracking_endpoint_tolerance_m": 0.00025,
+  "tracking_orientation_tolerance_rad": 0.03490658503988659,
+  "within_root_profile_tolerance_m": 0.00025,
+  "cross_root_profile_tolerance_m": 0.0005,
+  "context_relative_position_tolerance_m": 0.002,
+  "context_qpos_tolerance_rad": 0.03,
+  "context_gripper_tolerance_m": 0.0001,
+  "minimum_gallery_interactions": 200,
+  "coverage": [
+    0.01,
+    0.02,
+    0.05
+  ],
+  "split_coverage": [
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "candidate_multiplicity": "all five variants per eligible gallery root",
+  "tie_seed": "source-ties:",
+  "bootstrap_seed": 24140051,
+  "bootstrap_resamples": 5000,
+  "batches": [
+    {
+      "split": "train",
+      "seed": 24140100,
+      "parents": 16
+    },
+    {
+      "split": "train",
+      "seed": 24140101,
+      "parents": 16
+    },
+    {
+      "split": "train",
+      "seed": 24140102,
+      "parents": 16
+    },
+    {
+      "split": "train",
+      "seed": 24140103,
+      "parents": 16
+    },
+    {
+      "split": "train",
+      "seed": 24140104,
+      "parents": 16
+    },
+    {
+      "split": "train",
+      "seed": 24140105,
+      "parents": 16
+    },
+    {
+      "split": "train",
+      "seed": 24140106,
+      "parents": 16
+    },
+    {
+      "split": "train",
+      "seed": 24140107,
+      "parents": 16
+    },
+    {
+      "split": "development",
+      "seed": 24140200,
+      "parents": 16
+    },
+    {
+      "split": "development",
+      "seed": 24140201,
+      "parents": 16
+    },
+    {
+      "split": "query",
+      "seed": 24140300,
+      "parents": 16
+    },
+    {
+      "split": "query",
+      "seed": 24140301,
+      "parents": 16
+    },
+    {
+      "split": "query",
+      "seed": 24140302,
+      "parents": 16
+    },
+    {
+      "split": "query",
+      "seed": 24140303,
+      "parents": 16
+    },
+    {
+      "split": "gallery",
+      "seed": 24140400,
+      "parents": 16
+    },
+    {
+      "split": "gallery",
+      "seed": 24140401,
+      "parents": 16
+    },
+    {
+      "split": "gallery",
+      "seed": 24140402,
+      "parents": 16
+    },
+    {
+      "split": "gallery",
+      "seed": 24140403,
+      "parents": 16
+    },
+    {
+      "split": "gallery",
+      "seed": 24140404,
+      "parents": 16
+    },
+    {
+      "split": "gallery",
+      "seed": 24140405,
+      "parents": 16
+    },
+    {
+      "split": "gallery",
+      "seed": 24140406,
+      "parents": 16
+    },
+    {
+      "split": "gallery",
+      "seed": 24140407,
+      "parents": 16
+    }
+  ],
+  "training_seeds": [
+    24140061,
+    24140062,
+    24140063
+  ],
+  "model_widths": [
+    128,
+    256
+  ],
+  "training_updates": 4000,
+  "validation_interval": 250,
+  "dmp_basis_count": 12,
+  "training_exposure": "Shared newly collected training roots; no pretrained backbone for any learned method.",
+  "pap_adaptation": "PAP-Affine uses RigidLawHead with a raw-state source encoder trained from scratch; exact rotation-vector targets.",
+  "spirl": "Official ClSPiRLMdl; state-conditioned posterior and decoder; no downstream RL.",
+  "spirl_commit": "e74ad23d2e9696369ec3d998f2920be4cddf9015",
+  "endpoint": "First source probe (0,22mm) measured 12D effect with physical group metric.",
+  "selection": "Within each method and seed select width/checkpoint by development objective only.",
+  "primary": "Root-balanced neighbor audit discrepancy; normalized trapezoid area over 1%-5% linear coverage.",
+  "contrasts": "PAP-Affine minus each of five comparators; paired 99% root intervals (Bonferroni family of five).",
+  "support": "PAP-Affine minus each of the semantic/DMP/SPiRL/endpoint comparators has a 99% upper bound below zero; PAP-Nonlinear is reported separately.",
+  "uncertainty": "Query-root bootstrap conditional on fixed gallery/models; average three seed curves before bootstrap.",
+  "witness_position_m": 0.005,
+  "witness_rotation_rad": 0.08726646259971647,
+  "witness_min_branches": 2,
+  "retry_policy": "No physical-tracking retries; infrastructure failures may rerun an identical request.",
+  "source_missingness": "Exclude whole root bundle if any source branch invalid; report counts; fail if >5% roots excluded.",
+  "audit_missingness": "Require complete valid panels for the query/gallery cohorts; an invalid audit is reported as not evaluable, with no reranking.",
+  "sample_size_rationale": "64 query and 128 fixed gallery roots; conditional precision study under a finite resource budget; no power claim.",
+  "examples": "Metadata-first within-query-root pair among witnessed pairs and bottom-quartile source DMP pair distances; report no qualifying pair when absent."
+}
